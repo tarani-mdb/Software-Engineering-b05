@@ -86,6 +86,10 @@ export default function Home() {
               <div className="text-5xl font-bold mb-2">$2M</div>
               <p className="text-green-100">Money Saved</p>
             </div>
+            <div>
+              <div className="text-5xl font-bold mb-2">25+</div>
+              <p className="text-green-100">Countries</p>
+            </div>
           </div>
         </div>
       </div>
