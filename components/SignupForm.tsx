@@ -6,6 +6,7 @@ import Link from 'next/link';
 export default function SignupForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
@@ -19,6 +20,11 @@ export default function SignupForm() {
     // Validation
     if (!name || !email || !password || !confirmPassword) {
       setError('Please fill in all fields');
+      setLoading(false);
+      return;
+    }
+    if (phone.length == 10){
+      setError('Phone Number must be 10 digits');
       setLoading(false);
       return;
     }
