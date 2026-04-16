@@ -1,20 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "FoodWaste Manager - Reduce Food Waste Together",
-  description: "A platform to manage and reduce food waste in your community",
+  title: "Waste Food Management",
+  description: "Connect donors, NGOs, volunteers, and admins to reduce food waste together.",
 };
 
 export default function RootLayout({
@@ -23,10 +14,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            try {
+              const stored = localStorage.getItem('theme-mode');
+              const preferredDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+              const theme = stored === 'dark' || stored === 'light' ? stored : (preferredDark ? 'dark' : 'light');
+              document.documentElement.dataset.theme = theme;
+            } catch (e) {}
+          `}
+        </Script>
+        <Navbar />
         {children}
       </body>
     </html>
