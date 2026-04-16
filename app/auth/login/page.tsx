@@ -1,27 +1,30 @@
 import LoginForm from '@/components/LoginForm';
-import Navbar from '@/components/Navbar';
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar />
-      
-      <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+    <main className="page-shell px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-5xl items-center justify-center">
+        <div className="panel w-full max-w-xl rounded-[2.5rem] p-8 sm:p-10">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">Welcome Back</h1>
-            <p className="text-gray-600 mt-2">Login to your FoodWaste Manager account</p>
+            <p className="section-kicker text-sm uppercase tracking-[0.3em]">Welcome back</p>
+            <h1 className="mt-3 text-4xl font-semibold" style={{ color: 'var(--foreground)' }}>Sign in to continue</h1>
+            <p className="text-muted mt-3">Access donor, NGO, volunteer, or admin dashboards from one place.</p>
           </div>
 
           <LoginForm />
 
-          <div className="mt-6 pt-6 border-t border-gray-300">
-            <p className="text-center text-xs text-gray-500 mb-4">
-              Demo credentials: use any email and password
-            </p>
+          <div className="panel-muted text-muted mt-8 rounded-3xl p-5 text-sm">
+            Demo logins:
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              <p>`admin@foodwaste.local`</p>
+              <p>`donor@foodwaste.local`</p>
+              <p>`ngo@foodwaste.local`</p>
+              <p>`volunteer@foodwaste.local`</p>
+            </div>
+            <p className="mt-3">Password: `password123`</p>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

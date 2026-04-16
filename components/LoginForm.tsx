@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function LoginForm() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -14,35 +16,45 @@ export default function LoginForm() {
     setError('');
     setLoading(true);
 
-    // Basic validation
     if (!email || !password) {
       setError('Please fill in all fields');
       setLoading(false);
       return;
     }
 
-    // Simulate login
-    setTimeout(() => {
-      if (email && password) {
-        alert('Login successful! (Demo mode)');
-        setLoading(false);
-      } else {
-        setError('Invalid credentials');
-        setLoading(false);
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = (await response.json()) as { error?: string; dashboardPath?: string };
+
+      if (!response.ok) {
+        setError(data.error ?? 'Unable to sign in.');
+        return;
       }
-    }, 1000);
+
+      router.push(data.dashboardPath ?? '/dashboard');
+      router.refresh();
+    } catch {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+        <div className="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-rose-700">
           {error}
         </div>
       )}
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="email" className="mb-2 block text-sm font-medium" style={{ color: 'var(--foreground)' }}>
           Email Address
         </label>
         <input
@@ -51,12 +63,12 @@ export default function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@example.com"
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          className="app-input"
         />
       </div>
 
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="password" className="mb-2 block text-sm font-medium" style={{ color: 'var(--foreground)' }}>
           Password
         </label>
         <input
@@ -65,21 +77,21 @@ export default function LoginForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="••••••••"
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          className="app-input"
         />
       </div>
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-green-600 text-white py-2 rounded-lg font-medium hover:bg-green-700 transition disabled:opacity-50"
+        className="btn-primary w-full py-3 disabled:opacity-50"
       >
         {loading ? 'Logging in...' : 'Login'}
       </button>
 
-      <div className="text-center text-sm text-gray-600">
-        Don't have an account?{' '}
-        <Link href="/auth/signup" className="text-green-600 font-medium hover:text-green-700">
+      <div className="text-muted text-center text-sm">
+        Don&apos;t have an account?{' '}
+        <Link href="/auth/signup" className="link-brand">
           Sign up here
         </Link>
       </div>
