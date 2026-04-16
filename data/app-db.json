@@ -1,0 +1,175 @@
+{
+  "users": [
+    {
+      "id": "6b4c9f27-1945-47f5-bcb7-0c08e074e629",
+      "name": "Admin User",
+      "email": "admin@foodwaste.local",
+      "passwordHash": "29385865bd8612ca20ed5bfe17af0138:09ebfd88d533663a825506e718f26da0ba946405b851749cd7a6753a0868b978b2152ab5ba86cc28ad1087c180d2db979ccb456d4cf9a9741c6d49e8504e285a",
+      "phone": "9999999999",
+      "role": "admin",
+      "verificationStatus": "verified",
+      "isActive": true,
+      "address": "Sample community hub",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560036",
+      "createdAt": "2026-04-16T12:42:47.266Z",
+      "updatedAt": "2026-04-16T12:42:47.266Z"
+    },
+    {
+      "id": "535b1211-373e-4378-a817-4729507b7d6b",
+      "name": "Ananya Foods",
+      "email": "donor@foodwaste.local",
+      "passwordHash": "1c2eb5814ea1e6348d073238bcbdb29b:67c384f43e5b0ac62b963bf8251353465d0798bb2450f35ca23d5183b4395817256ad3f6ba2a57636b8796f071d2f5727ab85f55bb441c187c9a02d53aab1804",
+      "phone": "9999999999",
+      "role": "donor",
+      "verificationStatus": "not_required",
+      "isActive": true,
+      "address": "Sample community hub",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560036",
+      "createdAt": "2026-04-16T12:42:47.366Z",
+      "updatedAt": "2026-04-16T12:42:47.366Z"
+    },
+    {
+      "id": "bb581192-c24e-4aa4-a1fc-9a3a0d19bfd2",
+      "name": "Care Kitchen",
+      "email": "ngo@foodwaste.local",
+      "passwordHash": "e59cd14c12c39052c228b98b74747b81:dc0800a395b286b5e86719a7e585d2d4aba54faef62fe1bbfd7d65917a0d2acd95315e06c7c443b70727e89e0201ee7a8b7703aa2e8e20ab51e9e8a1cfbab02a",
+      "phone": "9999999999",
+      "role": "ngo",
+      "ngoName": "Care Kitchen Foundation",
+      "verificationStatus": "verified",
+      "isActive": true,
+      "address": "Sample community hub",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560036",
+      "createdAt": "2026-04-16T12:42:47.456Z",
+      "updatedAt": "2026-04-16T12:42:47.456Z"
+    },
+    {
+      "id": "1da1a1fa-1be7-4843-96d7-aac5b9a982c4",
+      "name": "Rohit Volunteer",
+      "email": "volunteer@foodwaste.local",
+      "passwordHash": "0ca1e7657471414db8432a0928b80d92:bb339c66844e8906f48398d0300c95366afc8db1ea782e82c27b0d3cd37cb764622f406cb1d1846cb8ced32965c4e76062813c0a23ba51f8f1f0374867a06a85",
+      "phone": "9999999999",
+      "role": "volunteer",
+      "verificationStatus": "not_required",
+      "isActive": true,
+      "address": "Sample community hub",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560036",
+      "createdAt": "2026-04-16T12:42:47.542Z",
+      "updatedAt": "2026-04-16T12:42:47.542Z"
+    },
+    {
+      "id": "8e9d3ec9-0082-43db-86e9-233ba2b427b5",
+      "name": "Meals for All",
+      "email": "pending-ngo@foodwaste.local",
+      "passwordHash": "a38da55d51ffccb251b26f99164883a1:7317cff61a3f95bf271c1cabee44b01411f18fff64c7d3f2d7c9f4141cb1fb50d1f13929a89a15aa05bc42115a87221af2c1d495a8a7c1b655fc2a4f7c12af52",
+      "phone": "9999999999",
+      "role": "ngo",
+      "ngoName": "Meals for All",
+      "verificationStatus": "pending",
+      "isActive": true,
+      "address": "Sample community hub",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560036",
+      "createdAt": "2026-04-16T12:42:47.625Z",
+      "updatedAt": "2026-04-16T12:42:47.625Z"
+    }
+  ],
+  "listings": [
+    {
+      "id": "e21f1580-9ff4-47e6-9609-faccb00992b4",
+      "donorId": "535b1211-373e-4378-a817-4729507b7d6b",
+      "title": "Fresh lunch boxes from office event",
+      "description": "Packed veg meals from a corporate lunch. Safe for same-day distribution.",
+      "foodType": "Cooked Meals",
+      "category": "Prepared Food",
+      "quantityKg": 18,
+      "servings": 35,
+      "isVegetarian": true,
+      "preparedAt": "2026-04-16T12:42:47.717Z",
+      "pickupWindowStart": "2026-04-16T12:42:47.717Z",
+      "pickupWindowEnd": "2026-04-16T16:42:47.717Z",
+      "pickupAddress": "KR Puram Main Road",
+      "pickupCity": "Bengaluru",
+      "pickupState": "Karnataka",
+      "pickupPincode": "560036",
+      "specialInstructions": "Please bring insulated containers.",
+      "status": "active",
+      "createdAt": "2026-04-16T12:42:47.717Z",
+      "updatedAt": "2026-04-16T12:42:47.717Z"
+    },
+    {
+      "id": "d76ae3dd-90bb-4b4e-8bd1-3a394b33f908",
+      "donorId": "535b1211-373e-4378-a817-4729507b7d6b",
+      "title": "Bakery surplus bread and buns",
+      "description": "Assorted bread items from morning production.",
+      "foodType": "Bakery",
+      "category": "Packaged",
+      "quantityKg": 10,
+      "servings": 20,
+      "preparedAt": "2026-04-16T12:42:47.717Z",
+      "pickupWindowStart": "2026-04-16T12:42:47.717Z",
+      "pickupWindowEnd": "2026-04-16T14:42:47.717Z",
+      "pickupAddress": "Old Madras Road",
+      "pickupCity": "Bengaluru",
+      "pickupState": "Karnataka",
+      "pickupPincode": "560049",
+      "specialInstructions": "Pickup before 6 PM.",
+      "status": "claimed",
+      "claimedByUserId": "bb581192-c24e-4aa4-a1fc-9a3a0d19bfd2",
+      "claimedAt": "2026-04-16T12:42:47.717Z",
+      "createdAt": "2026-04-16T12:42:47.717Z",
+      "updatedAt": "2026-04-16T12:42:47.717Z"
+    }
+  ],
+  "pickups": [
+    {
+      "id": "6efac0aa-0a74-489b-9fff-c03858989599",
+      "listingId": "d76ae3dd-90bb-4b4e-8bd1-3a394b33f908",
+      "donorId": "535b1211-373e-4378-a817-4729507b7d6b",
+      "claimerUserId": "bb581192-c24e-4aa4-a1fc-9a3a0d19bfd2",
+      "claimerRole": "ngo",
+      "status": "claimed",
+      "claimedAt": "2026-04-16T12:42:47.717Z",
+      "createdAt": "2026-04-16T12:42:47.717Z",
+      "updatedAt": "2026-04-16T12:42:47.717Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "ac120918-7196-4cd6-b07d-4170fb35cf3d",
+      "userId": "535b1211-373e-4378-a817-4729507b7d6b",
+      "type": "listing_claimed",
+      "title": "Donation claimed",
+      "message": "Care Kitchen Foundation claimed your bakery surplus listing.",
+      "isRead": false,
+      "createdAt": "2026-04-16T12:42:47.717Z"
+    },
+    {
+      "id": "5b512ec2-d922-442b-8b3f-5464c2e3f417",
+      "userId": "6b4c9f27-1945-47f5-bcb7-0c08e074e629",
+      "type": "ngo_verification_pending",
+      "title": "NGO verification pending",
+      "message": "Meals for All is waiting for approval.",
+      "isRead": false,
+      "createdAt": "2026-04-16T12:42:47.717Z"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "1827f543-c1d3-448c-9846-989617a321e0",
+      "userId": "6b4c9f27-1945-47f5-bcb7-0c08e074e629",
+      "token": "fcb8545a-0803-4df0-8e60-b0839f46e435-c7407ca3890763a24cd513ab4e8cba0e967e",
+      "expiresAt": "2026-04-30T12:46:35.281Z",
+      "createdAt": "2026-04-16T12:46:35.290Z"
+    }
+  ]
+}
