@@ -1,20 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { compare } from 'bcryptjs';
-import { findUserByEmail } from '@/lib/user';
+import { loginUser, logoutUser } from '@/lib/auth';
 
 export async function POST(req: NextRequest) {
-  const { email, password } = await req.json();
-  if (!email || !password) {
-    return NextResponse.json({ error: 'Email and password are required.' }, { status: 400 });
+  try {
+    const { email, password } = (await req.json()) as { email: string; password: string };
+    if (!email || !password) {
+      return NextResponse.json({ error: 'Email and password are required.' }, { status: 400 });
+    }
+
+    const result = await loginUser(email, password);
+    return NextResponse.json(result);
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : 'Unable to login.' },
+      { status: 401 },
+    );
   }
-  const user = await findUserByEmail(email);
-  if (!user) {
-    return NextResponse.json({ error: 'Invalid credentials.' }, { status: 401 });
-  }
-  const isValid = await compare(password, user.password);
-  if (!isValid) {
-    return NextResponse.json({ error: 'Invalid credentials.' }, { status: 401 });
-  }
-  // Here you would generate a session or JWT token
-  return NextResponse.json({ message: 'Login successful.', user: { email: user.email } });
+}
+
+export async function DELETE() {
+  await logoutUser();
+  return NextResponse.json({ success: true });
 }
